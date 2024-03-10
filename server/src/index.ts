@@ -16,17 +16,17 @@ const dirname = path.resolve();
 // console.log(dirname, "path");
 const app = express();
 port.config();
-app.use(cors());
-connectDb();
+// app.use(cors());
 const Port = process.env.PORT || 5001;
 app.use(express.json());
 app.use(cookieParser());
-// app.use(
-//   cors({
-//     origin: "http://localhost:3000",
-//     credentials: true,
-//   })
-// );
+connectDb();
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+  })
+);
 
 app.listen(Port, () => {
   console.log("Server started successfully on Port: ", Port);
