@@ -104,6 +104,10 @@ export const google = async (
         process.env.JWT_SECRET as string
       );
       const { password, ...rest } = user?._doc;
+      console.log(req.headers);
+      console.log("req.headers");
+      console.log(token);
+      console.log("tokenPur");
       res
         .status(200)
         .cookie("access_token", token, {

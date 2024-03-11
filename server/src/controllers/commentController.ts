@@ -11,7 +11,10 @@ export const createComment = async (
 ) => {
   try {
     const { content, postId, userId } = req.body;
-
+    console.log(req.user);
+    console.log("req.user");
+    console.log(userId);
+    console.log("userId");
     if (userId !== req.user.id) {
       return next(
         errorHandler(403, "You are not allowed to create a comment.")
