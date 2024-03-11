@@ -79,10 +79,9 @@ export const signIn = async (
     res
       .status(200)
       .cookie("access_token", token, {
-        expires: new Date(Date.now() + 604800000),
         secure: true,
         sameSite: "none",
-        // httpOnly: true,
+        httpOnly: false,
       })
       .json(rest);
   } catch (error) {
