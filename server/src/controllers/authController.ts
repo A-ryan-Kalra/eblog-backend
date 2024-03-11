@@ -66,7 +66,7 @@ export const signIn = async (
     if (!validPassword) {
       return next(errorHandler(400, "Invalid Password"));
     }
-    // console.log(validPassword, "validPassword");
+    console.log(validPassword, "validPassword");
 
     const token = jwt.sign(
       {

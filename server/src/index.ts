@@ -23,7 +23,7 @@ app.use(cookieParser());
 connectDb();
 app.use(
   cors({
-    origin: true,
+    origin: ["https://mern-blog-rouge.vercel.app", "http://localhost:3000"],
     credentials: true,
   })
 );
