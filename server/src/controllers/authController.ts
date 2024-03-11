@@ -82,7 +82,7 @@ export const signIn = async (
         expires: new Date(Date.now() + 604800000),
         secure: true,
         sameSite: "none",
-        httpOnly: true,
+        // httpOnly: true,
       })
       .json(rest);
   } catch (error) {
