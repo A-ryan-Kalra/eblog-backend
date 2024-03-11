@@ -11,7 +11,7 @@ export const verifyToken = (
   res: express.Response,
   next: express.NextFunction
 ) => {
-  // console.log(req.headers, "Cookie");
+  // console.log(req.cookies, "Cookiesss");
   const token = req.cookies.access_token;
 
   if (!token) {

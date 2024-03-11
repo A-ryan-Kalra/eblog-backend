@@ -67,7 +67,7 @@ export const signIn = async (
     if (!validPassword) {
       return next(errorHandler(400, "Invalid Password"));
     }
-    console.log(validPassword, "validPassword");
+    // console.log(validPassword, "validPassword");
 
     const token = jwt.sign(
       {
@@ -77,7 +77,7 @@ export const signIn = async (
       process.env.JWT_SECRET as string
     );
     const { password, ...rest } = validUser?._doc;
-    console.log(token, "token");
+    // console.log(token, "token");
     res
       .status(200)
       .cookie("access_token", token, {
@@ -86,7 +86,7 @@ export const signIn = async (
         httpOnly: false,
       })
       .json(rest);
-    console.log(res, "res");
+    // console.log(res, "res");
   } catch (error) {
     next(error);
   }

@@ -15,24 +15,25 @@ const dirname = path.resolve();
 // console.log(dirname, "path");
 // console.log(dirname, "path");
 const app = express();
+app.use(cookieParser());
+
 port.config();
 // app.use(cors());
 const Port = process.env.PORT || 5001;
 app.use(express.json());
-app.use(cookieParser());
 connectDb();
 
-app.use(
-  cors({
-    origin: true,
-    credentials: true,
-    allowedHeaders: [
-      "Access-Control-Allow-Origin",
-      "Content-Type",
-      "Authorization",
-    ],
-  })
-);
+// app.use(
+//   cors({
+//     origin: true,
+//     credentials: true,
+//     allowedHeaders: [
+//       "Access-Control-Allow-Origin",
+//       "Content-Type",
+//       "Authorization",
+//     ],
+//   })
+// );
 
 app.listen(Port, () => {
   console.log("Server started successfully on Port: ", Port);
