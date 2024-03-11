@@ -79,7 +79,7 @@ export const signIn = async (
     res
       .status(200)
       .cookie("access_token", token, {
-        httpOnly: true,
+        httpOnly: false,
         secure: true,
         sameSite: "lax",
       })
