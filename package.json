@@ -4,8 +4,8 @@
   "description": "This is server session for blog-api.",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node server/dist/index.js",
+    "build": "npm install",
+    "start": "tsc && node server/dist/index.js",
     "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
