@@ -12,7 +12,7 @@ export const signUp = async (
 ) => {
   try {
     const { username, password, email } = req.body;
-    console.log(username, "username", password, "password", email, "email");
+    // console.log(username, "username", password, "password", email, "email");
     if (!username.trim() || !password.trim() || !email.trim()) {
       next(errorHandler(400, "All fields are required"));
     }
@@ -66,7 +66,7 @@ export const signIn = async (
     if (!validPassword) {
       return next(errorHandler(400, "Invalid Password"));
     }
-    console.log(validPassword, "validPassword");
+    // console.log(validPassword, "validPassword");
 
     const token = jwt.sign(
       {
@@ -80,6 +80,8 @@ export const signIn = async (
       .status(200)
       .cookie("access_token", token, {
         httpOnly: true,
+        secure: true,
+        sameSite: "none",
       })
       .json(rest);
   } catch (error) {
@@ -104,10 +106,10 @@ export const google = async (
         process.env.JWT_SECRET as string
       );
       const { password, ...rest } = user?._doc;
-      console.log(req.headers);
-      console.log("req.headers");
-      console.log(token);
-      console.log("tokenPur");
+      // console.log(req.headers);
+      // console.log("req.headers");
+      // console.log(token);
+      // console.log("tokenPur");
       res
         .status(200)
         .cookie("access_token", token, {
@@ -141,6 +143,8 @@ export const google = async (
         .status(200)
         .cookie("access_token", token, {
           httpOnly: true,
+          secure: true,
+          sameSite: "none",
         })
         .json(rest);
     }
