@@ -79,7 +79,6 @@ export const signIn = async (
     res
       .status(200)
       .cookie("access_token", token, {
-        httpOnly: true,
         secure: true,
         sameSite: "none",
       })
