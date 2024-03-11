@@ -26,12 +26,13 @@ app.use(
   cors({
     origin: true,
     credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: [
+      "Access-Control-Allow-Origin",
+      "Content-Type",
+      "Authorization",
+    ],
   })
 );
-
-// app.enable("trust proxy");
-app.set("trust proxy", 1);
 
 app.listen(Port, () => {
   console.log("Server started successfully on Port: ", Port);
