@@ -52,6 +52,7 @@ export const signIn = async (
   if (!email.trim() || !pass.trim()) {
     next(errorHandler(400, "All fields are required"));
   }
+  console.log(req.headers, "Cookie");
 
   try {
     const validUser: any = await User.findOne({ email });
@@ -76,6 +77,7 @@ export const signIn = async (
       process.env.JWT_SECRET as string
     );
     const { password, ...rest } = validUser?._doc;
+    console.log(token, "token");
     res
       .status(200)
       .cookie("access_token", token, {
@@ -84,6 +86,7 @@ export const signIn = async (
         httpOnly: false,
       })
       .json(rest);
+    console.log(res, "res");
   } catch (error) {
     next(error);
   }
