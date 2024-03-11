@@ -81,7 +81,7 @@ export const signIn = async (
       .cookie("access_token", token, {
         httpOnly: true,
         secure: true,
-        sameSite: "strict",
+        sameSite: "lax",
       })
       .json(rest);
   } catch (error) {
