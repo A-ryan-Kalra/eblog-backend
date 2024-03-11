@@ -22,14 +22,15 @@ app.use(express.json());
 app.use(cookieParser());
 connectDb();
 
-app.enable("trust proxy");
-
 app.use(
   cors({
     origin: true,
     credentials: true,
   })
 );
+
+// app.enable("trust proxy");
+app.set("trust proxy", 1);
 
 app.listen(Port, () => {
   console.log("Server started successfully on Port: ", Port);
