@@ -1,6 +1,5 @@
 import express from "express";
 import port from "dotenv";
-import mongoose from "mongoose";
 import connectDb from "./config/dbConfig";
 import useRouter from "./routes/userRoutes";
 import postRoute from "./routes/postRoutes";
@@ -23,17 +22,12 @@ const Port = process.env.PORT || 5001;
 app.use(express.json());
 connectDb();
 
-// app.use(
-//   cors({
-//     origin: true,
-//     credentials: true,
-//     allowedHeaders: [
-//       "Access-Control-Allow-Origin",
-//       "Content-Type",
-//       "Authorization",
-//     ],
-//   })
-// );
+app.use(
+  cors({
+    origin: true,
+    credentials: true,
+  })
+);
 
 app.listen(Port, () => {
   console.log("Server started successfully on Port: ", Port);
