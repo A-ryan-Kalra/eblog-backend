@@ -52,7 +52,7 @@ export const signIn = async (
   if (!email.trim() || !pass.trim()) {
     next(errorHandler(400, "All fields are required"));
   }
-  console.log(req.headers, "Cookie");
+  // console.log(req.headers, "Cookie");
 
   try {
     const validUser: any = await User.findOne({ email });
