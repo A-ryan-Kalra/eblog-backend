@@ -38,11 +38,11 @@ app.use("/api/auth", authRouter);
 app.use("/api/post", postRoute);
 app.use("/api/comment", commentRoue);
 // console.log(path.join(dirname, "/client/dist"), "path");
-app.use(express.static(path.join(dirname, "/client/dist")));
+// app.use(express.static(path.join(dirname, "/client/dist")));
 
-app.get("*", (req: express.Request, res: express.Response) => {
-  res.sendFile(path.join(dirname, "client", "dist", "index.html"));
-});
+// app.get("*", (req: express.Request, res: express.Response) => {
+//   res.sendFile(path.join(dirname, "client", "dist", "index.html"));
+// });
 app.use(
   (
     err: any,
